@@ -4,7 +4,12 @@ import claimRoutes from "./routes/claimRoutes.js";
 
 const app = express();
 
-app.use(cors());
+app.use(
+  cors({
+    origin: ["https://claim-form-frontend-u2dv.vercel.app/"],
+    methods: ["GET", "POST", "PUT", "DELETE"],
+  })
+);
 app.use(express.json());
 
 app.use("/api", claimRoutes);
@@ -15,3 +20,4 @@ app.use((err, req, res, next) => {
 });
 
 export default app;
+// https://claim-form-frontend-u2dv.vercel.app/
