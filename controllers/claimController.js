@@ -1,6 +1,7 @@
 import { createClaim } from "../models/claimModel.js";
 
 export const createClaimController = async (req, res) => {
+  console.log("Request received to create claim:", req.body);
   const {
     claim_no,
     claim_date,
@@ -50,6 +51,7 @@ export const createClaimController = async (req, res) => {
       bond_status,
       claim_status,
     });
+    console.log("Claim created successfully:", claim);
     res
       .status(201)
       .json({ message: "Claim created successfully", data: claim });
