@@ -2,13 +2,14 @@ import pg from "pg";
 import dotenv from "dotenv";
 
 const { Client } = pg;
-dotenv.config();
+dotenv.config(); 
 
 const client = new Client({
-  connectionString: process.env.DATABASE_URL,
-  ssl: {
-    rejectUnauthorized: false, // Required for Railway's SSL connection
-  },
+  user: process.env.DB_USER,
+  host: process.env.DB_HOST,
+  database: process.env.DB_NAME,
+  password: process.env.DB_PASSWORD,
+  port: process.env.DB_PORT,
 });
 
 client
